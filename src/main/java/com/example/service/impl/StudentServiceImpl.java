@@ -1,5 +1,6 @@
 package com.example.service.impl;
 
+import cn.hutool.poi.excel.ExcelUtil;
 import com.example.common.reponse.CommonPage;
 import com.example.entity.Student;
 import com.example.mapper.StudentMapper;
@@ -8,6 +9,7 @@ import com.example.utils.DateUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.stereotype.Service;
@@ -18,9 +20,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
+@Slf4j
 public class StudentServiceImpl implements StudentService {
 
     private static final String DEFAULT_URL_ENCODING = "UTF-8";
@@ -30,15 +34,16 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student addStudent(Student student) {
+        student.setCreateTime(new Date());
         studentMapper.addStudent(student);
         Integer id = student.getId();
-        System.out.println("==============================" + id);
+        log.info("添加成功，id为：{}", id);
         return student;
     }
 
     @Override
-    public Student getStudent(Integer id) {
-        return studentMapper.getStudent(id);
+    public Student getById(Integer id) {
+        return studentMapper.getById(id);
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 public interface StudentMapper {
     void addStudent(@Param("student") Student student);
 
-    Student getStudent(@Param("id") Integer id);
+    Student getById(@Param("id") Integer id);
 
     List<Student> getStudentList(@Param("student")Student student);
 

@@ -10,7 +10,7 @@ import java.util.List;
 public interface StudentService {
     Student addStudent(Student student);
 
-    Student getStudent(Integer id);
+    Student getById(Integer id);
 
     List<Student> getStudentList(Student student);
 
