@@ -1,0 +1,57 @@
+server:
+  port: 1002
+  servlet:
+    context-path: /${spring.application.name}
+
+spring:
+  application:
+    name: springboot-mybatis
+  datasource:
+    username: root
+    password: Cc980507
+    url: jdbc:mysql://localhost:3306/2022?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 5
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      stat-view-servlet.allow: true
+
+# mybatis
+mybatis:
+  mapper-locations: classpath*:/com/example/mapper/*Mapper.xml
+  type-aliases-package: com.example.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# 文件上传
+ftp:
+  #服务器ip
+  host: 47.117.170.7
+  #服务器账号
+  userName: root
+  #服务器密码
+  password: 1qaz!QAZ
+  #端口
+  port: 80
+  #根目录
+  rootPath: /usr/local/upload
+  #返回的路径
+  img:
+    url: http://47.117.170.7/image/ # ftp.img.url 可以不添加，这里只是为了上传文件成功后返回文件路径
+
+
+
+
+
+
+

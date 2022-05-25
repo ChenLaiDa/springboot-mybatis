@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 - 绑定一个对应的Mapper接口-->
+<mapper namespace="com.example.mapper.CourseMapper">
+    <resultMap id="BaseResultMap" type="com.example.entity.Course">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="course_name" property="courseName" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+        <result column="update_time" property="updateTime" jdbcType="DATE"/>
+        <result column="is_delete" property="isDelete" jdbcType="INTEGER"/>
+    </resultMap>
+</mapper>

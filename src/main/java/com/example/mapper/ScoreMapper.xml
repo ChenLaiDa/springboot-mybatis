@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 - 绑定一个对应的Mapper接口-->
+<mapper namespace="com.example.mapper.ScoreMapper">
+    <resultMap id="BaseResultMap" type="com.example.entity.Score">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="student_id" property="studentId" jdbcType="INTEGER"/>
+        <result column="course_id" property="courseId" jdbcType="INTEGER"/>
+        <result column="score" property="score" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+        <result column="update_time" property="updateTime" jdbcType="DATE"/>
+        <result column="is_delete" property="isDelete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="scoreParam">
+        id,student_id,course_id,score,create_time,update_time,is_delete
+    </sql>
+
+    <select id="getScoreByStudentId" resultMap="BaseResultMap">
+        select <include refid="scoreParam"/> from score where student_id=#{studentId}
+    </select>
+</mapper>
