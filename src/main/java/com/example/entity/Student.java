@@ -2,16 +2,20 @@ package com.example.entity;
 
 import com.example.common.reponse.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.checkerframework.checker.index.qual.Positive;
+
 import java.util.Date;
 import java.util.List;
 
 public class Student extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
+
     private Integer id;
 
     private String name;
 
+    @Positive
     private Integer age;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")

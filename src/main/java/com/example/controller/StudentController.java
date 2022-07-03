@@ -8,6 +8,7 @@ import com.example.utils.UploadUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.time.DateUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,7 +27,7 @@ public class StudentController {
 
     @ApiOperation(value = "添加学生", notes = "添加学生")
     @PostMapping("/addStudent")
-    public BaseResult<Student> addStudent(@RequestBody Student student){
+    public BaseResult<Student> addStudent(@RequestBody @Validated Student student){
         if(student == null){
             return BaseResult.error("error","学生对象不能为空!");
         }
